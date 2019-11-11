@@ -1,10 +1,23 @@
 import 'package:flutter/material.dart';
 
 //start of dart application
-void main(){
+void main() {
   //should run a flutter application
+  runApp( MyApp(), );
+}
 
-  runApp(Text(
-    'Hello World',
-    textDirection: TextDirection.ltr,));
+class MyApp extends StatelessWidget{
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return MaterialApp(
+      home: SafeArea(
+        child: Text(
+          'Hello Flutter Widget World',
+        ),
+      ),
+    );
+
+  }
 }
