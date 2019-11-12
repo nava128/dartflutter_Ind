@@ -72,3 +72,15 @@
 
 [GIST](https://gist.github.com/vivekduttamishra/104159847beb557d6307a133afadcfb6)|
 [DART](https://dartpad.dartlang.org/104159847beb557d6307a133afadcfb6)
+
+
+#### Random Number 
+
+[GIST](https://gist.github.com/vivekduttamishra/2c1364c33e2778378978a1c15895489f)|
+[DART](https://dartpad.dartlang.org/2c1364c33e2778378978a1c15895489f)
+
+
+#### Quotes Manager
+
+[GIST](https://gist.github.com/vivekduttamishra/e478ce2b339c73f0f0a31189dcd74482)|
+[DART](https://dartpad.dartlang.org/e478ce2b339c73f0f0a31189dcd74482)
