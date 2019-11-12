@@ -56,3 +56,19 @@
 [GIST](https://gist.github.com/vivekduttamishra/9e462a635e353f73be531b4586ebcbfc)|
 [DART](https://dartpad.dartlang.org/9e462a635e353f73be531b4586ebcbfc)
 
+
+#### Need for Properties
+
+[GIST](https://gist.github.com/vivekduttamishra/763ffc1f5de155c00bd8d7a756ab19fe)|
+[DART](https://dartpad.dartlang.org/763ffc1f5de155c00bd8d7a756ab19fe)
+
+#### Readonly Property
+
+[GIST](https://gist.github.com/vivekduttamishra/dc0912d8afe40bf251138163958a3183)|
+[DART](https://dartpad.dartlang.org/dc0912d8afe40bf251138163958a3183)
+
+
+#### Get Set Property in DART
+
+[GIST](https://gist.github.com/vivekduttamishra/104159847beb557d6307a133afadcfb6)|
+[DART](https://dartpad.dartlang.org/104159847beb557d6307a133afadcfb6)
