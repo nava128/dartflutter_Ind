@@ -45,4 +45,14 @@
 [DART](https://dartpad.dartlang.org/3053f245c3fbc8bbd180f214b304b3fd) 
 
 
+#### Dart Array Part 2
+
+[GIST](https://gist.github.com/vivekduttamishra/42a5f4a25c5731b60274a72439c80eb9) |
+[DART](https://dartpad.dartlang.org/42a5f4a25c5731b60274a72439c80eb9) 
+
+
+#### Dart Array Part 3
+
+[GIST](https://gist.github.com/vivekduttamishra/9e462a635e353f73be531b4586ebcbfc)|
+[DART](https://dartpad.dartlang.org/9e462a635e353f73be531b4586ebcbfc)
 
