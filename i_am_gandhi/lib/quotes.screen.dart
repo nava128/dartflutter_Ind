@@ -1,62 +1,75 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'styles.dart';
 import 'quotes-manager.service.dart';
+import 'quote-view.component.dart';
+
+QuotesManager manager=new QuotesManager();
 
 
-//const url='https://akm-img-a-in.tosshub.com/indiatoday/images/story/201910/gandhi-770x433.jpeg?6vX9r3yRDJyLfMxt6xqU_leK98tByZBZ';
-//const quote="First they ignore you, then they laugh at you, then they fight you, then you win";
+class QuotesScreen  extends StatefulWidget {
 
-QuotesManager manager=QuotesManager();
+  @override
+  _QuotesScreenState createState() => _QuotesScreenState();
+}
 
-class QuotesScreen extends StatelessWidget {
-
+class _QuotesScreenState extends State<QuotesScreen> {
   Quote quote;
-  QuotesScreen _currentScreen;
-  QuotesScreen(){
-    _currentScreen=this;
+
+  _QuotesScreenState(){
+    //quote = manager.getRandomQuote();
   }
 
   @override
-  Widget build(BuildContext context) {
-
+  void initState() {
+    // TODO: implement initState
+    super.initState();
     quote=manager.getRandomQuote();
+  }
 
-    var quotesText=Text(quote.quote,
-      textAlign: TextAlign.center,
-      style: kQuotestTextStyle,
+//  void changeQuote(){
+//
+//    //now flutter knows you changed the state
+//    //any change in the state will cause build() to be executed
+//    setState(() {
+//      quote=manager.getRandomQuote();
+//    });
+//
+//
+//    print('quotes changed to ${quote.quote}');
+//  }
 
-    );
+  @override
+  Widget build(BuildContext context) {
+    //never call setState inside the build method
+//    setState(() {
+//      quote=manager.getRandomQuote();
+//    });
 
     return Scaffold(
+      backgroundColor: kAppBackground,
+      appBar: AppBar(
         backgroundColor: kAppBackground,
-        appBar: AppBar(
-          backgroundColor: kAppBackground,
-          leading: Icon(Icons.question_answer),
-          title: Text('I Am Gandhi!',
-
+        //leading: Image(image: AssetImage('images/gandhi01.jpg'),),
+        //leading: Image.asset('images/gandhi01.jpg'),
+        leading : CircleAvatar(
+            backgroundImage: AssetImage('images/gandhi01.jpg'),
           ),
+        title: Text(
+          'I Am Gandhi!',
         ),
-        body: Column(
-          children: <Widget>[
-            //Image(image:NetworkImage(url)),
-            Image(image: AssetImage(quote.image)),
-            Container(
-              padding: EdgeInsets.all(20,),
-                child: quotesText,
-            ),
-            FloatingActionButton(
-              onPressed: (){
-                quote=manager.getRandomQuote();
-                quotesText.data=quote.quote;
-
-              },
-              child: Icon(Icons.refresh),
-            )
-          ],
-        )
+      ),
+      body: QuotesView(quote),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.refresh),
+        onPressed: (){
+          setState(() {
+            quote=manager.getRandomQuote();
+          });
+        },
+      ),
     );
   }
 }
-
-
 

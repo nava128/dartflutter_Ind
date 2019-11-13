@@ -84,3 +84,15 @@
 
 [GIST](https://gist.github.com/vivekduttamishra/e478ce2b339c73f0f0a31189dcd74482)|
 [DART](https://dartpad.dartlang.org/e478ce2b339c73f0f0a31189dcd74482)
+
+
+#### Functions are Objects
+
+[GIST](https://gist.github.com/vivekduttamishra/d8ce39627f99a887055645d8e9a8fc4a)|
+[DART](https://dartpad.dartlang.org/d8ce39627f99a887055645d8e9a8fc4a)
+
+
+### Anonymous Function and Lambda callbacks
+
+[GIST](https://gist.github.com/vivekduttamishra/47f1bbc0abf9cdf69d719be497809e5d)|
+[DART](https://dartpad.dartlang.org/47f1bbc0abf9cdf69d719be497809e5d)
