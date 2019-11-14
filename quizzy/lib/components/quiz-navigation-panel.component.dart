@@ -11,7 +11,18 @@ const kToolBarTextStyle=TextStyle(
 
 final kToolbarColor=Colors.blueGrey.shade700;
 
-class QuizNavigationPanel extends StatelessWidget {
+class NavigationPanel  extends StatelessWidget {
+
+  final int current;
+  final int total;
+  final int minIndex;
+  Function change;
+  NavigationPanel({this.current,
+    this.total,
+    this.change,
+    this.minIndex=1
+  });
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,11 +34,11 @@ class QuizNavigationPanel extends StatelessWidget {
               'Previous',
               style: kFlatButtonTextStyle,
             ),
-            onPressed: () {},
+            onPressed: current>minIndex ?  () {  this.change(-1);  } :null,
           ),
           Expanded(
             child: Center(
-              child: Text('2/5', style:kToolBarTextStyle,),
+              child: Text('$current/5', style:kToolBarTextStyle,),
             ),
           ),
           FlatButton(
@@ -35,7 +46,7 @@ class QuizNavigationPanel extends StatelessWidget {
               'Next',
               style: kFlatButtonTextStyle,
             ),
-            onPressed: () {},
+            onPressed: current<total? () {  this.change(1); }:null,
           ),
         ],
       ),

@@ -3,26 +3,31 @@ import 'package:quizzy/services/question-answer.service.dart';
 import 'package:quizzy/styles.dart';
 
 class QuestionPanel extends StatelessWidget {
+
+  QuestionAnswer selectedQuestion;
+
+  QuestionPanel(this.selectedQuestion);
+
+
   @override
   Widget build(BuildContext context) {
-    QuestionAnswer qa = QuestionAnswer(
-      'Who was the first \'Param Veer Chakra\' Awardee',
-      ['Abdul Hameed', 'Virkam Batra', 'Somenath Sharma', 'Shaitan Singh'],
-      2,
-    );
+
+
+
+
     return Container(
       padding: EdgeInsets.only(left: 10, top: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            qa.question,
+            selectedQuestion.question,
             style: TextStyle(
               fontSize: 30,
               fontFamily: 'QuestionFont',
             ),
           ),
-          ChoicePanel(qa),
+          ChoicePanel(selectedQuestion),
         ],
       ),
     );
@@ -35,8 +40,9 @@ class ChoicePanel extends StatelessWidget {
 
   List<Widget> buildChoices() {
     var widgets = <Widget>[];
-
+    int id=0;
     for (String choice in qa.choices) {
+
       var choiceWidget = Card(
         color: Colors.white,
         
@@ -56,6 +62,7 @@ class ChoicePanel extends StatelessWidget {
           onTap: (){print('selected $choice');},
         ),
       );
+      id++;
       widgets.add(choiceWidget);
     }
 

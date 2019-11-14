@@ -6,28 +6,76 @@ import 'package:flutter/material.dart';
 import 'package:quizzy/components/quiz-navigation-panel.component.dart';
 import 'package:quizzy/components/question-panel.component.dart';
 import 'package:quizzy/components/status-panel.component.dart';
+import 'package:quizzy/services/question-answer.service.dart';
+import 'package:quizzy/services/quiz-data.repository.dart';
+import 'package:quizzy/services/quiz-master.service.dart';
 
 class QuizHomeScreen extends StatefulWidget {
   @override
   _QuizHomeScreenState createState() => _QuizHomeScreenState();
 }
 
+QuizMaster createQuizMaster(){
+  var rep=QuizDataRepository();
+  var quizMaster= QuizMaster();
+  for(var qa in rep.fetchAll())
+    quizMaster.addQuestion(qa);
+  print(quizMaster.total);
+  return quizMaster;
+
+}
+
+QuizMaster quizMaster=createQuizMaster();
+
 class _QuizHomeScreenState extends State<QuizHomeScreen> {
+
+
+
+  List<QuestionAnswer> questions;
+  QuestionAnswer selectedQuestion;
+  int selectedQuestionIndex;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    selectedQuestionIndex=0;
+    selectedQuestion=quizMaster.get(selectedQuestionIndex);
+  }
+
+  void changeQuestion(int delta){
+
+    int newValue= selectedQuestionIndex+delta;
+    if(newValue>=0 && newValue<quizMaster.total){
+
+      setState(() {
+        selectedQuestionIndex=newValue;
+        selectedQuestion=quizMaster.get(selectedQuestionIndex);
+      });
+
+    }
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: CircleAvatar(
-          child:Image.asset('images/quiz.jpg'),
-          backgroundImage:AssetImage('images/quiz.jpg'),
+        leading:CircleAvatar(
+            backgroundImage: AssetImage('images/quiz.jpeg'),
+            radius: 30,
         ),
         title: Text('Quizzy'),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          Expanded(child: QuizNavigationPanel(),flex: 1,),
-          Expanded(child: QuestionPanel(),flex:8),
+          Expanded(child: NavigationPanel(
+            current: selectedQuestionIndex+1,
+            total: quizMaster.total,
+            change: changeQuestion,
+          ),flex: 1,),
+          Expanded(child: QuestionPanel(selectedQuestion),flex:8),
           Expanded(child: StatusPanel(),flex:1),
         ],
       ),

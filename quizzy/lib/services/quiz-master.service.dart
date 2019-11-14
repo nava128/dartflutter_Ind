@@ -5,12 +5,14 @@ class QuizMaster{
   List<QuestionAnswer> _questions=[];
   int _correct=0;
   int _incorrect=0;
-  int _attempted=0;
+  //int _attempted=0;
 
 
   void addQuestion(QuestionAnswer qa){
     _questions.add(qa);
   }
+
+
 
   void answer(int questionNumber, int choiceNumber){
     var qa= _questions[questionNumber];
@@ -22,7 +24,7 @@ class QuizMaster{
       } else {
         _incorrect++;
       }
-      _attempted++;
+      //_attempted++;
     }
 
   }
@@ -33,13 +35,15 @@ class QuizMaster{
 
   int get total=> _questions.length;
 
-  int get attempted=> _attempted;
+  int get attempted=> _correct+_incorrect;
 
   int get correct=> _correct;
 
   int get incorrect =>_incorrect;
 
-  bool get isOver=> _attempted== total;
+  bool get isOver=> attempted== total;
+
+  List<QuestionAnswer> get questions=>_questions;
 
   void reset(){
     for(var qa in _questions)
@@ -47,7 +51,7 @@ class QuizMaster{
 
     _correct=0;
     _incorrect=0;
-    _attempted=0;
+   // _attempted=0;
   }
 
 

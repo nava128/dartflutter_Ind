@@ -6,6 +6,8 @@ class QuestionAnswer {
   int correctChoice;
   int userChoice=null;
 
+
+
   QuestionAnswer(this.question, this.choices, this.correctChoice);
 
   void answer(int userChoice){
