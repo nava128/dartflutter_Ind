@@ -25,11 +25,11 @@ QuizMaster createQuizMaster(){
 
 }
 
-QuizMaster quizMaster=createQuizMaster();
+
 
 class _QuizHomeScreenState extends State<QuizHomeScreen> {
 
-
+  QuizMaster quizMaster=createQuizMaster();
 
   List<QuestionAnswer> questions;
   QuestionAnswer selectedQuestion;
@@ -41,6 +41,14 @@ class _QuizHomeScreenState extends State<QuizHomeScreen> {
     super.initState();
     selectedQuestionIndex=0;
     selectedQuestion=quizMaster.get(selectedQuestionIndex);
+  }
+
+  void onAnswerSelection(int selectedChoiceIndex){
+    //print('user selected $selectedIndex');
+    setState(() {
+      quizMaster.answer(selectedQuestionIndex, selectedChoiceIndex);
+    });
+
   }
 
   void changeQuestion(int delta){
@@ -75,7 +83,10 @@ class _QuizHomeScreenState extends State<QuizHomeScreen> {
             total: quizMaster.total,
             change: changeQuestion,
           ),flex: 1,),
-          Expanded(child: QuestionPanel(selectedQuestion),flex:8),
+          Expanded(child: QuestionPanel(selectedQuestion,
+            onChoiceSelected: this.onAnswerSelection,
+          ),flex:8,
+          ),
           Expanded(child: StatusPanel(),flex:1),
         ],
       ),

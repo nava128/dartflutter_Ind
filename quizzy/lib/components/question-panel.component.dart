@@ -5,8 +5,9 @@ import 'package:quizzy/styles.dart';
 class QuestionPanel extends StatelessWidget {
 
   QuestionAnswer selectedQuestion;
+  Function onChoiceSelected;
 
-  QuestionPanel(this.selectedQuestion);
+  QuestionPanel(this.selectedQuestion,{this.onChoiceSelected});
 
 
   @override
@@ -27,7 +28,9 @@ class QuestionPanel extends StatelessWidget {
               fontFamily: 'QuestionFont',
             ),
           ),
-          ChoicePanel(selectedQuestion),
+          ChoicePanel(selectedQuestion,
+            onChoiceSelected: onChoiceSelected,
+          ),
         ],
       ),
     );
@@ -36,32 +39,42 @@ class QuestionPanel extends StatelessWidget {
 
 class ChoicePanel extends StatelessWidget {
   QuestionAnswer qa;
-  ChoicePanel(this.qa);
+  Function onChoiceSelected;
+  ChoicePanel(this.qa,{this.onChoiceSelected});
+
+  Widget buildChoice(QuestionAnswer qa, int choiceIndex){
+
+    return Card(
+      color: Colors.white,
+
+      child: GestureDetector(
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 5,vertical: 10),
+          child: Text(
+            qa.choices[choiceIndex],
+            style: TextStyle(
+              fontFamily: 'Times New Roman',
+              fontSize: 20,
+              letterSpacing: 1.5,
+              color:Colors.black,
+            ),
+          ),
+        ),
+        onTap: (){ onChoiceSelected(choiceIndex);},
+      ),
+    );
+
+  }
+
 
   List<Widget> buildChoices() {
     var widgets = <Widget>[];
-    int id=0;
-    for (String choice in qa.choices) {
 
-      var choiceWidget = Card(
-        color: Colors.white,
-        
-        child: GestureDetector(
-          child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 5,vertical: 10),
-            child: Text(
-              choice,
-              style: TextStyle(
-                fontFamily: 'Times New Roman',
-                fontSize: 20,
-                letterSpacing: 1.5,
-                color:Colors.black,
-              ),
-            ),
-          ),
-          onTap: (){print('selected $choice');},
-        ),
-      );
+    int id=0;
+    for (var choice in qa.choices) {
+
+      var choiceWidget = buildChoice(qa, id);
+
       id++;
       widgets.add(choiceWidget);
     }
