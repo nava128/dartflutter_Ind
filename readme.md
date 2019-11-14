@@ -96,3 +96,33 @@
 
 [GIST](https://gist.github.com/vivekduttamishra/47f1bbc0abf9cdf69d719be497809e5d)|
 [DART](https://dartpad.dartlang.org/47f1bbc0abf9cdf69d719be497809e5d)
+
+#### Function REturning Another Function
+
+[GIST](https://gist.github.com/vivekduttamishra/bf402e1ac87bf76c1ce63a518762b2f9) |
+[DART](https://dartpad.dartlang.org/bf402e1ac87bf76c1ce63a518762b2f9)
+
+#### Simple Closure
+
+[GIST](https://gist.github.com/vivekduttamishra/7157f548ac6497fcff2af8ef9afa09d4)|
+[DART](https://dartpad.dartlang.org/7157f548ac6497fcff2af8ef9afa09d4)
+
+
+#### Closure scope
+
+[GIST](https://gist.github.com/vivekduttamishra/d4fa3701c7b5287bf7c34947408af9c2)|
+[DART](https://dartpad.dartlang.org/d4fa3701c7b5287bf7c34947408af9c2)
+
+
+### Closure Real World
+
+[GIST](https://gist.github.com/vivekduttamishra/36c82ef9e2b428543861241852d71d69) |
+
+[DART](https://dartpad.dartlang.org/vivekduttamishra/36c82ef9e2b428543861241852d71d69) |
+
+
+
+#### List Map
+
+[GIST](https://gist.github.com/vivekduttamishra/25dded1896709cfd20255da46d81d672) |
+[DART](https://dartpad.dartlang.org/25dded1896709cfd20255da46d81d672)

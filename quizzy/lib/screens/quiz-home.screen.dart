@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizzy/components/quiz-bar.component.dart';
 //import '../components/quiz-navigation-panel.component.dart';
 //import '../components/question-panel.component.dart';
 //import '../components/status-panel.component.dart';
@@ -6,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:quizzy/components/quiz-navigation-panel.component.dart';
 import 'package:quizzy/components/question-panel.component.dart';
 import 'package:quizzy/components/status-panel.component.dart';
+import 'package:quizzy/screens/quiz-result.screen.dart';
 import 'package:quizzy/services/question-answer.service.dart';
 import 'package:quizzy/services/quiz-data.repository.dart';
 import 'package:quizzy/services/quiz-master.service.dart';
@@ -13,6 +15,7 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:simple_gesture_detector/simple_gesture_detector.dart';
 
 class QuizHomeScreen extends StatefulWidget {
+  static const id = 'QuizHomeScreen';
   @override
   _QuizHomeScreenState createState() => _QuizHomeScreenState();
 }
@@ -31,6 +34,23 @@ class _QuizHomeScreenState extends State<QuizHomeScreen> {
   List<QuestionAnswer> questions;
   QuestionAnswer selectedQuestion;
   int selectedQuestionIndex;
+
+  getAnswerButton(BuildContext context) {
+    //if (quizMaster.isOver)
+      return FloatingActionButton(
+        child: Icon(Icons.help_outline),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => QuizResult(quizMaster),
+            ),
+          );
+        },
+      );
+    //else
+    //  return null;
+  }
 
   @override
   void initState() {
@@ -121,13 +141,7 @@ class _QuizHomeScreenState extends State<QuizHomeScreen> {
     this.context = context;
 
     return Scaffold(
-      appBar: AppBar(
-        leading: CircleAvatar(
-          backgroundImage: AssetImage('images/quiz.jpeg'),
-          radius: 30,
-        ),
-        title: Text('Quizzy'),
-      ),
+      appBar: QuizBar.build(context),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
@@ -145,8 +159,8 @@ class _QuizHomeScreenState extends State<QuizHomeScreen> {
                 selectedQuestion,
                 onChoiceSelected: this.onAnswerSelection,
               ),
-              onHorizontalSwipe: (direction){
-                if(direction==SwipeDirection.right)
+              onHorizontalSwipe: (direction) {
+                if (direction == SwipeDirection.right)
                   changeQuestion(-1);
                 else
                   changeQuestion(1);
@@ -157,9 +171,7 @@ class _QuizHomeScreenState extends State<QuizHomeScreen> {
           Expanded(child: StatusPanel(quizMaster), flex: 1),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.help_outline),
-      ),
+      floatingActionButton: getAnswerButton(context),
     );
   }
 }
