@@ -18,6 +18,7 @@ class QuestionPanel extends StatelessWidget {
 
     return Container(
       padding: EdgeInsets.only(left: 10, top: 10),
+      color:Colors.black54,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -44,10 +45,27 @@ class ChoicePanel extends StatelessWidget {
 
   Widget buildChoice(QuestionAnswer qa, int choiceIndex){
 
+    Function clickHandler=(){
+      //print('click handler is called');
+      onChoiceSelected(choiceIndex);
+    };
+
+    var backgroundColor= Colors.white;
+    if(qa.isAnswered){
+
+      if(choiceIndex==qa.userChoice)
+        backgroundColor= qa.isCorrect? kSuccessColor: kErrorColor;
+      else
+        backgroundColor=Colors.grey.shade400;
+      //disable the button
+      clickHandler=null;
+    }
+
     return Card(
-      color: Colors.white,
+      color: backgroundColor,
 
       child: GestureDetector(
+
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 5,vertical: 10),
           child: Text(
@@ -60,7 +78,7 @@ class ChoicePanel extends StatelessWidget {
             ),
           ),
         ),
-        onTap: (){ onChoiceSelected(choiceIndex);},
+        onTap: clickHandler,
       ),
     );
 
