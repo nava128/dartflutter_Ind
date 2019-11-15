@@ -126,3 +126,13 @@
 
 [GIST](https://gist.github.com/vivekduttamishra/25dded1896709cfd20255da46d81d672) |
 [DART](https://dartpad.dartlang.org/25dded1896709cfd20255da46d81d672)
+
+
+### sync function call
+
+[GIST](https://gist.github.com/vivekduttamishra/2c7ac113c1af9a64ba00745c57013f33) |
+[DART](https://dartpad.dartlang.org/2c7ac113c1af9a64ba00745c57013f33)
+
+#### weather info assignment 1
+[GIST](https://gist.github.com/vivekduttamishra/0bf84e74b2eff4d1267cda8026b22801)|
+[DART](https://dartpad.dartlang.org/0bf84e74b2eff4d1267cda8026b22801)

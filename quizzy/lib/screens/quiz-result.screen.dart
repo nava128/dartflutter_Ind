@@ -46,6 +46,7 @@ class QuestionResult extends StatelessWidget {
               style: TextStyle(
                 fontSize: 30,
                 color: kErrorColor,
+                decoration: TextDecoration.lineThrough,
                 
               ));
     }
@@ -68,6 +69,7 @@ class QuestionResult extends StatelessWidget {
                   fontSize: 25,
                 )),
                 SizedBox(height: 10,),
+                getWrongAnswer(),
             Text(
               qa.choices[qa.correctChoice],
               style: TextStyle(
@@ -76,7 +78,7 @@ class QuestionResult extends StatelessWidget {
               ),
               
             ),
-            getWrongAnswer(),
+            
           ],
         ),
       ),

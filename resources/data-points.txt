@@ -1,0 +1,11 @@
+12.908, 77.662
+
+25.20, 55.27
+
+28.70, 77.10
+
+http://reduxblog.herokuapp.com/api/posts?key=quiz-vivek-201911 ---> gandhi quiz
+
+http://reduxblog.herokuapp.com/api/posts?key=indian-history-quiz
+
+http://reduxblog.herokuapp.com/api/posts?key=quiz-fiction-movie-novel
