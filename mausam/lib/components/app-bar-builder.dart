@@ -6,12 +6,15 @@ import 'package:mausam/styles.dart';
 
 class AppbarBuilder{
 
-  Widget build(){
+  static Widget build(){
     return AppBar(
-      title: Text('मौसम', style: kTitleStyle),
-      leading: CircleAvatar(
-        radius: 25,
-        backgroundImage: AssetImage(kLogoImage),
+      title: Hero( tag:'title', child: Text('मौसम', style: kTitleStyle)),
+      leading: Hero(
+        tag:'logo',
+        child: CircleAvatar(
+          radius: 25,
+          backgroundImage: AssetImage(kLogoImage),
+        ),
       ),
     );
   }
