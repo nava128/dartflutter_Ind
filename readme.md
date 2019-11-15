@@ -136,3 +136,8 @@
 #### weather info assignment 1
 [GIST](https://gist.github.com/vivekduttamishra/0bf84e74b2eff4d1267cda8026b22801)|
 [DART](https://dartpad.dartlang.org/0bf84e74b2eff4d1267cda8026b22801)
+
+
+#### weather info v2
+
+[GIST](https://gist.github.com/vivekduttamishra/769f25b1e04de5e061aca519b25d37a8)
